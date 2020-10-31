@@ -19,7 +19,9 @@ podman run --detach \
    gitlab/gitlab-ee:latest
 ```
 ## Generate systemd file
+```
 podman generate systemd --restart-policy=always -t 1 -f --name gitlab
+```
 
 ### replace WantedBy directive
 ```
@@ -32,13 +34,16 @@ cp container-gitlab.service ~/.config/systemd/user/container-gitlab.service
 ```
 
 ## Enable service
+```
 systemctl --user enable container-gitlab
 systemctl --user daemon-reload
+```
 
 ## Open ports on firewall
-
-sudo firewall-cmd --permanent --zone=public --add-port=8443/tcpsudo firewall-cmd --permanent --zone=public --add-port=8080/tcp
-sudo firewall-cmd --permanent --zone=public --add-port=8443/tcpsudo firewall-cmd --permanent --zone=public --add-port=8443/tcp
-sudo firewall-cmd --permanent --zone=public --add-port=8443/tcpsudo firewall-cmd --permanent --zone=public --add-port=2222/tcp
+```
+sudo firewall-cmd --permanent --zone=public --add-port=8080/tcp
+sudo firewall-cmd --permanent --zone=public --add-port=8443/tcp
+sudo firewall-cmd --permanent --zone=public --add-port=2222/tcp
+```
 
 ## Reboot
