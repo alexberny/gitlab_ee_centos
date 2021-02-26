@@ -47,3 +47,7 @@ sudo firewall-cmd --permanent --zone=public --add-port=2222/tcp
 ```
 
 ## Reboot
+
+## Post install
+### Disable Sign-up
+### Enalbe Ldap
